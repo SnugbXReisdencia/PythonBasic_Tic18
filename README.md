@@ -1,1 +1,1 @@
-# Esse repositorio contem arquivos de todas as atividades realizadas da disciplina de Python individual.
+# Esse repositorio contem arquivos de todas as atividades realizadas da disciplina de Python.
