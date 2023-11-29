@@ -5,14 +5,16 @@ bd = Tj.Repositorio("rep", "tarefasBd")
 
 def limpar_console():
     try:
-        os.system('cls')
-    except:
-        os.system('clear')
+        if os.system('clear') != 0:
+            os.system('cls')
+        
+    except os.error:
+        pass
 def pausa():
     try:
-        os.system('pause')
-    except:
         input("Pressione <ENTER> para continuar...")
+    except:
+        pass
     
 
 def Menu():
@@ -142,7 +144,7 @@ def main():
                 break
             case _:
                 limpar_console()
-                print("Opção indormada invalida !!!")
+                print("Opção informada invalida !!!")
                 pausa()
 
 if __name__ == "__main__":
