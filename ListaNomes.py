@@ -1,37 +1,36 @@
 from AnaliseDadosABS import AnaliseDados
 
 class ListaNomes(AnaliseDados):
-    
+    def __init__(self):
+        super().__init__(type("String"))
+        self.__lista = []        
+
     def __init__(self):
         super().__init__(type("String"))
         self.__lista = []        
 
     def entradaDeDados(self):
-        '''
-        Este método pergunta ao usuários quantos
-        elementos vão existir na lista e depois
-        solicita a digitação de cada um deles.
-        '''
-        pass
+        n = int(input("Quantidade de nomes: "))
+        for _ in range(n):
+            nome = input("Digite um nome: ")
+            self.__lista.append(nome)
 
     def mostraMediana(self):
-        '''
-        Este método ordena a lista e mostra o
-        elemento que está na metade da lista
-        '''
-        pass    
+        sorted_lista = sorted(self.__lista)
+        meio = len(sorted_lista) // 2
+        print("Mediana:", sorted_lista[meio])
 
     def mostraMenor(self):
-        '''
-        Este método retorna o menos elemento da lista
-        '''
-        pass
+        print("Menor elemento:", min(self.__lista))
 
     def mostraMaior(self):
-        '''
-        Este método retorna o maior elemento da lista
-        '''
-        pass    
+        print("Maior elemento:", max(self.__lista))
 
+    def __str__(self):
+        return ", ".join(self.__lista)
+
+    def mostraMaior(self):
+        print("Maior elemento:", max(self.__lista))
+   
     def __str__(self):
         pass
