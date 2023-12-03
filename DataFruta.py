@@ -1,7 +1,7 @@
-from .ListaNomes import ListaNomes
-from .ListaDATAs import ListaDatas
-from .ListaSalarios import ListaSalarios
-from .ListaIdades import ListaIdades
+from ListaNomes import ListaNomes
+from ListaDATAs import ListaDatas
+from ListaSalarios import ListaSalarios
+from ListaIdades import ListaIdades
 def main():
     nomes = ListaNomes()
     datas = ListaDatas()

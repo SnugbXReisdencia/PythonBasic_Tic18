@@ -1,5 +1,5 @@
-from .AnaliseDadosABS import AnaliseDados
-from .Data import Data
+from AnaliseDadosABS import AnaliseDados
+from Data import Data
 class ListaDatas(AnaliseDados):
         
     def __init__(self):

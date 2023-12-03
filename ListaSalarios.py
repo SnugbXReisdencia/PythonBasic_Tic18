@@ -1,4 +1,4 @@
-from .AnaliseDadosABS import AnaliseDados
+from AnaliseDadosABS import AnaliseDados
 
 class ListaSalarios(AnaliseDados):
 
@@ -35,3 +35,8 @@ class ListaSalarios(AnaliseDados):
     
     def __str__(self):
         pass
+
+#Fazer os testes
+if __name__ == "__main__":
+    #teste
+    pass
