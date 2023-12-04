@@ -32,6 +32,8 @@ class ListaIdades(AnaliseDados):
         Este método retorna o maior elemento da lista
         '''
         pass
+    def listarEmOrdem(self):
+        pass
 
     def __str__(self):
         pass
