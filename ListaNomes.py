@@ -18,7 +18,10 @@ class ListaNomes(AnaliseDados):
     def mostraMediana(self):
         sorted_lista = sorted(self.__lista)
         meio = len(sorted_lista) // 2
-        print("Mediana:", sorted_lista[meio])
+        if len(sorted_lista) % 2 == 0:  # Se o número de elementos for par
+            print("Mediana:", sorted_lista[meio - 1])  # Imprime o primeiro dos dois nomes em ordem alfabética
+        else:
+            print("Mediana:", sorted_lista[meio])
 
     def mostraMenor(self):
         print("Menor elemento:", min(self.__lista))
@@ -33,4 +36,4 @@ class ListaNomes(AnaliseDados):
         print("Maior elemento:", max(self.__lista))
    
     def __str__(self):
-        pass
+        return ", ".join(self.__lista)
