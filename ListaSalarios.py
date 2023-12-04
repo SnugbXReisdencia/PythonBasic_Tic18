@@ -95,8 +95,7 @@ class ListaSalarios(AnaliseDados):
         if not self.__lista:
             print("A lista está vazia.")
             return
-        numeros = [float(x) for x in self.__lista]
-        numeros = [x * 1.1 for x in numeros]
+        numeros = list(map(lambda x: float(x) * 1.1, self.__lista_salarios))
         self.__lista = numeros
         print("Folha de Pagamento Reajustado 10%")
         print(self.__str__())
