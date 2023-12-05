@@ -1,5 +1,5 @@
 import os
-
+import utilit
 from ListaNomes import ListaNomes
 from ListaDATAs import ListaDatas
 from ListaSalarios import ListaSalarios
@@ -18,7 +18,19 @@ def menu():
     print("2 - Lista de idade")
     print("3 - Lista de salario")
     print("4 - Lista de data")
-    print("5 - Pecorre a lista de nomes e salarios")
+    print("5 - (Iteradores ")
+    print("0 - Sair")
+    try:
+        opc = int(input("Escolha uma opção: "))
+    except:
+        opc = -1
+    return opc
+def menuIteradores():
+    limpar_tela()
+    print("############ MENU Iteradores ##########")
+    print("1 - Iterador zip (Nomes e Salários)")
+    print("2 - Iterador map (Reajuste de Salários 10 %)")
+    print("3 - Iterador filter (Modificação de Datas)")
     print("0 - Sair")
     try:
         opc = int(input("Escolha uma opção: "))
@@ -34,6 +46,7 @@ def menuNome():
     print("3 - Mediana de nome")
     print("4 - Menor nome")
     print("5 - Maior nome")
+    print("6 - Listar em Ordem")
     print("0 - Voltar")
     try:
         opc = int(input("Escolha uma opção: "))
@@ -102,6 +115,8 @@ def gerenciaNomes(lst):
             lst.mostraMenor()
         elif opc == 5:
             lst.mostraMaior()
+        elif opc == 6:
+            lst.listarEmOrdem()
         else:
             print("Opcão inválida")
         pause()
@@ -190,6 +205,31 @@ def gerenciaData(lst):
 
     return lst
 
+# utilit.py
+
+# utilit.py
+
+def pecorrer_listas(lst_nomes, lst_salarios):
+    print("############ Iterador zip (Nomes e Salários) ##########")
+    if len(lst_nomes.lista) != len(lst_salarios.lista):
+        print("As listas não têm o mesmo tamanho. Não é possível iterar.")
+        return
+    for nome, salario in zip(lst_nomes.lista, lst_salarios.lista):
+        print(f"Nome: {nome}, Salário: {salario}")
+
+
+
+
+def reajustar_salarios(lst_salarios):
+    print("############ Iterador map (Reajuste de Salários 10%) ##########")
+    lst_salarios.reajustar10()
+    print("Salários reajustados:", lst_salarios.__str__())
+
+def modificar_datas(lst_datas):
+    print("############ Iterador filter (Modificação de Datas) ##########")
+    lst_datas.modificar_datas()
+    print("Datas modificadas:", lst_datas.__str__())
+
 def main():
     nomes = ListaNomes()
     idades = ListaIdades()
@@ -207,6 +247,20 @@ def main():
             salarios = gerenciaSalarios(salarios)
         elif opc == 4:
             datas = gerenciaData(datas)
+        elif opc == 5:
+            while True:
+                opc = menuIteradores()
+                if opc == 0:
+                    break
+                elif opc == 1:
+                    pecorrer_listas(nomes, salarios)
+                elif opc == 2:
+                    reajustar_salarios(salarios)
+                elif opc == 3:
+                    modificar_datas(datas)
+                else:
+                    print("Opcão inválida")
+                pause()
         else:
             print("Opcão inválida")
             pause()
