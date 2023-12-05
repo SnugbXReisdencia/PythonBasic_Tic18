@@ -47,9 +47,12 @@ class ListaIdades(AnaliseDados):
         elemento que está na metade da lista
         '''
         try:
-            listaOrdenada = self.listarEmOrdem()
-            mediana = listaOrdenada[int(len(listaOrdenada) / 2 - 1)] if len(
-                self.__lista) % 2 == 0 else listaOrdenada[int(len(listaOrdenada) / 2)]
+            if not self.__lista:
+                print("A lista está vazia.")
+            else:    
+                listaOrdenada = self.listarEmOrdem()
+                mediana = listaOrdenada[int(len(listaOrdenada) / 2 - 1)] if len(self.__lista) % 2 == 0 else listaOrdenada[int(len(listaOrdenada) / 2)]
+            
         except Exception as e:
             print("Error no metodo mostraMediana", e)
         finally:
@@ -61,7 +64,10 @@ class ListaIdades(AnaliseDados):
         Este método retorna o menos elemento da lista
         '''
         try:
-            menor_numero = min(self.__lista, default=None)
+            if not self.__lista:
+                print("A lista está vazia.")
+            else:
+                menor_numero = min(self.__lista, default=None)
         except Exception as e:
             print("Error no metodo mostraMenor", e)
         finally:
@@ -72,7 +78,10 @@ class ListaIdades(AnaliseDados):
         Este método retorna o maior elemento da lista
         '''
         try:
-            maior_numero = max(self.__lista, default=None)
+            if not self.__lista:
+                print("A lista está vazia.")
+            else:
+                maior_numero = max(self.__lista, default=None)
         except Exception as e:
             print("Error no metodo mostraMaior", e)
         finally:
@@ -80,8 +89,11 @@ class ListaIdades(AnaliseDados):
 
     def __str__(self):
         try:
-            for num in self.__lista:
-                print(f'-> {num}')
+            if not self.__lista:
+                print("A lista está vazia.")
+            else:
+                for num in self.__lista:
+                    print(f'-> {num}')
         except Exception as e:
             print("Error no metodo __str__", e)
 
