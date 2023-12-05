@@ -95,3 +95,16 @@ class ListaIdades(AnaliseDados):
         except Exception as e:
             print("Erro ao listar em ordem:", e)
             return None
+
+def main():
+    Idade = ListaIdades()
+    
+    Idade.entradaDeDados()
+    Idade.mostraMediana()
+    Idade. mostraMenor()
+    Idade. mostraMaior()
+    Idade.__str__()
+
+
+if __name__ == "__main__":
+    main()
