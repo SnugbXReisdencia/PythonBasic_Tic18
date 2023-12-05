@@ -29,11 +29,11 @@ class ListaNomes(AnaliseDados):
         print(", ".join(self.__lista))
     
     
-# if __name__ == "__main__":
-#     sls = ListaNomes()
-#     sls.entradaDeDados()
-#     sls.mostraMediana()
-#     sls.mostraMenor()
-#     sls.mostraMaior()
-#     sls.listarEmOrdem()
-#     sls.__str__()
+if __name__ == "__main__":
+    sls = ListaNomes()
+    sls.entradaDeDados()
+    sls.mostraMediana()
+    sls.mostraMenor()
+    sls.mostraMaior()
+    sls.listarEmOrdem()
+    sls.__str__()
