@@ -35,3 +35,6 @@ class ListaDatas(AnaliseDados):
     
     def __str__(self):
         pass
+
+    def listarEmOrdem(self):
+        pass
