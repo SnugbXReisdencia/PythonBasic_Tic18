@@ -45,19 +45,36 @@ class ListaIdades(AnaliseDados):
         Este método ordena a lista e mostra o
         elemento que está na metade da lista
         '''
-        pass    
+        try:
+            listaOrdenada = self.listarEmOrdem()
+            mediana = listaOrdenada[int(len(listaOrdenada) / 2 - 1)] if len(self.__lista) % 2 == 0 else listaOrdenada[int(len(listaOrdenada) / 2)]
+        except Exception as e:
+            print("Error no metodo mostraMediana", e)
+        finally:
+            print(f'Idade mediana: {mediana}, De lista ordenado: {listaOrdenada}') 
     
     def mostraMenor(self):
         '''
         Este método retorna o menos elemento da lista
         '''
-        pass
+        try:
+            menor_numero = min(self.__lista, default=None)
+        except Exception as e:
+            print("Error no metodo mostraMenor", e)
+        finally:
+            print("Menor número da lista:", menor_numero) 
+    
     
     def mostraMaior(self):
         '''
         Este método retorna o maior elemento da lista
         '''
-        pass
+        try:
+            maior_numero = max(self.__lista, default=None)
+        except Exception as e:
+            print("Error no metodo mostraMaior", e)
+        finally:
+            print("Maior número da lista:", maior_numero) 
 
     def __str__(self):
         pass
