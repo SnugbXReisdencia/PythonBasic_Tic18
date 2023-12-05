@@ -23,7 +23,22 @@ class ListaIdades(AnaliseDados):
         elementos vão existir na lista e depois
         solicita a digitação de cada um deles
         '''
-        pass
+        try:
+            Qtd = 0
+            while Qtd <= 0: 
+                Qtd = int(input("Quantos elementos a lista de idade terá ?"))
+            
+            for _ in range(Qtd):   
+                add_idade = int(input("Digite a idade: "))
+                if self.validar_idade(add_idade):
+                    self.__lista.append(add_idade)
+                else: 
+                    raise ValueError("Idade Invalida.")   
+
+        except Exception as e:
+            print("Error no metodo entradaDeDado: ", e)
+        finally:
+            print("Lista de idades:", self.__lista)  
     
     def mostraMediana(self):
         '''
