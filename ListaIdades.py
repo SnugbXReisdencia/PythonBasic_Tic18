@@ -4,7 +4,18 @@ class ListaIdades(AnaliseDados):
     
     def __init__(self):
         super().__init__(type(int))
-        self.__lista = []        
+        self.__lista = []
+        
+    def validar_idade(self, idade):
+        '''
+        Este método verifica o parâmetro idade,
+        retornando um booleano ao comparar se o valor 
+        é maior que zero.
+        '''
+        try:
+            return idade > 0  
+        except Exception as e:
+            print("Error no metodo validar_idade: ", e)        
     
     def entradaDeDados(self):
         '''
