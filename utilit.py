@@ -19,6 +19,7 @@ def menu():
     print("3 - Lista de salario")
     print("4 - Lista de data")
     print("5 - Pecorre a lista de nomes e salarios")
+    print("6 - Pecorre a lista de datas ano anterior a 2019 modifica o dia para 1ª dia do mes")
     print("0 - Sair")
     try:
         opc = int(input("Escolha uma opção: "))
@@ -190,6 +191,44 @@ def gerenciaData(lst):
 
     return lst
 
+def ListaDatasAnoAnterior2019(lst):
+    #usando o filter para filtrar
+    if len(lst) == 0:
+        print("Lista vazia")
+        pause()
+        return
+    lista_filtrada = filter(lambda data: data.ano < 2019, lst)
+    for data in lista_filtrada:
+        data.dia = 1
+    print("Lista atualizada com o ano anterior a 2019 modificado para 1° dia do mes")
+    print(lista_filtrada)
+    pause()
+
+def ListaNomesSalarios(listNomes, listSalarios):
+    if len(listNomes) != len(listSalarios):
+        print("As duas listas devem ter o mesmo tamanho")
+        pause()
+        return
+    if len(listNomes) == 0:
+        print("Lista de nomes vazia")
+        pause()
+        return
+    if len(listSalarios) == 0:
+        print("Lista de salarios vazia")
+        pause()
+        return
+    if len(listNomes) == len(listSalarios):
+        #usando o zip para Listar
+        for nome, salario in zip(listNomes, listSalarios):
+            print(f"Nome: {nome} | Salário: {salario}")
+        
+        pause()
+        return
+    else:
+        print("As duas listas devem ter o mesmo tamanho")
+        pause()
+        return
+
 def main():
     nomes = ListaNomes()
     idades = ListaIdades()
@@ -207,6 +246,10 @@ def main():
             salarios = gerenciaSalarios(salarios)
         elif opc == 4:
             datas = gerenciaData(datas)
+        elif opc == 5:
+            ListaNomesSalarios(nomes.lista, salarios.lista)
+        elif opc == 6:
+            ListaDatasAnoAnterior2019(datas.lista)
         else:
             print("Opcão inválida")
             pause()

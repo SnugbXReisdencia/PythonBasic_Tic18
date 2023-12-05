@@ -6,6 +6,12 @@ class ListaSalarios(AnaliseDados):
         super().__init__(type(float))
         self.__lista = lista        
 
+    @property
+    def lista(self):
+        return self.__lista
+    @lista.setter
+    def lista(self, lista):
+        self.__lista = lista
     def entradaDeDados(self):
         '''
         Este método pergunta ao usuários quantos
@@ -26,8 +32,6 @@ class ListaSalarios(AnaliseDados):
                 return
             self.__lista.append(elemento)
         
-        
-
     def mostraMediana(self):
         '''
         Este método ordena a lista e mostra o

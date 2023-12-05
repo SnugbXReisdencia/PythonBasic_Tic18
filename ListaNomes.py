@@ -3,7 +3,16 @@ from AnaliseDadosABS import AnaliseDados
 class ListaNomes(AnaliseDados):
     def __init__(self):
         super().__init__(type("String"))
-        self.__lista = []        
+        self.__lista = []     
+
+    @property
+    def lista(self):
+        return self.__lista
+
+    @lista.setter
+    def lista(self, lista):
+        self.__lista = lista
+           
     def entradaDeDados(self):
         n = int(input("Quantidade de nomes: "))
         for _ in range(n):
