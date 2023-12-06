@@ -18,7 +18,7 @@ def menu():
     print("2 - Lista de idade")
     print("3 - Lista de salario")
     print("4 - Lista de data")
-    print("5 - (Iteradores ")
+    print("5 - Iteradores ")
     print("0 - Sair")
     try:
         opc = int(input("Escolha uma opção: "))
@@ -28,9 +28,9 @@ def menu():
 def menuIteradores():
     limpar_tela()
     print("############ MENU Iteradores ##########")
-    print("1 - Iterador zip (Nomes e Salários)")
-    print("2 - Iterador map (Reajuste de Salários 10 %)")
-    print("3 - Iterador filter (Modificação de Datas)")
+    print("1 - Iterador zip (Percorrer as listas de nomes e salários)")
+    print("2 - Iterador map (Calcular o valor da folha com um reajuste de 10%)")
+    print("3 - Iterador filter (Modificar o dia das datas anteriores a 2019)")
     print("0 - Sair")
     try:
         opc = int(input("Escolha uma opção: "))
@@ -217,9 +217,6 @@ def pecorrer_listas(lst_nomes, lst_salarios):
     for nome, salario in zip(lst_nomes.lista, lst_salarios.lista):
         print(f"Nome: {nome}, Salário: {salario}")
 
-
-
-
 def reajustar_salarios(lst_salarios):
     print("############ Iterador map (Reajuste de Salários 10%) ##########")
     lst_salarios.reajustar10()
@@ -255,7 +252,9 @@ def main():
                 elif opc == 1:
                     pecorrer_listas(nomes, salarios)
                 elif opc == 2:
-                    reajustar_salarios(salarios)
+                    salarios.reajustar10()  # Reajusta os salários em 10%
+                    custo_folha = salarios.calcular_custo_folha()
+                    print(f"Custo total da folha de pagamento: {custo_folha}")
                 elif opc == 3:
                     modificar_datas(datas)
                 else:

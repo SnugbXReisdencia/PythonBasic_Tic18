@@ -95,8 +95,18 @@ class ListaSalarios(AnaliseDados):
                 print("Erro typo: ", type(i))            
             print("Erro ao mostrar a lista: ", e)
         return str
-    
-  
+    def reajustar10(self):
+        self.lista = list(map(lambda salario: salario * 1.1, self.lista))
+    def calcular_custo_folha(self):
+        return sum(self.lista)
+    def rajust10(self):
+        if not self.__lista:
+            print("A lista está vazia.")
+            return
+        numeros = list(map(lambda x: float(x) * 1.1, self.__lista_salarios))
+        self.__lista = numeros
+        print("Folha de Pagamento Reajustado 10%")
+        print(self.__str__())
 #Fazer os testes
 if __name__ == "__main__":
     sls = ListaSalarios()
