@@ -51,6 +51,8 @@ class ListaDatas(AnaliseDados):
         print('Maior data: ' + str(sorted(self.__lista)[-1]))
     
     def __str__(self):
+        if not self.__lista:
+            print('A lista  está vazia!')
         for data in self.__lista:
             print(data)
         
@@ -59,4 +61,5 @@ class ListaDatas(AnaliseDados):
         if not self.__lista:
             print('A lista  está vazia!')
             return
-        print(sorted(self.__list))
+        for data in sorted(self.__lista):
+            print(data)
