@@ -1,5 +1,6 @@
 from AnaliseDadosABS import AnaliseDados
 from Data import Data
+
 class ListaDatas(AnaliseDados):
         
     def __init__(self):
@@ -13,8 +14,8 @@ class ListaDatas(AnaliseDados):
         solicita a digitação de cada um deles
         '''
         try:
-            quantidade = int(input('Quantas datas a lista terá?'))
-        except:
+            quantidade = int(input('Quantas datas a lista terá? '))
+        except ValueError:
             print('Valor inválido!')
             return
         for i in range(quantidade):
@@ -25,9 +26,9 @@ class ListaDatas(AnaliseDados):
                 ano = int(input('Ano: '))
                 data = Data(dia, mes, ano)
                 self.__lista.append(data)
-            except:
+            except ValueError:
                 print('Valor inválido!')
-    
+
     def mostraMediana(self):
         '''
         Este método ordena a lista e mostra o
@@ -39,11 +40,13 @@ class ListaDatas(AnaliseDados):
         else:
             mediana = listaOrdenada[int(len(listaOrdenada) / 2)]
         print('Mediana da lista de datas = ' + str(mediana))
+
     def mostraMenor(self):
         '''
         Este método retorna o menos elemento da lista
         '''
         print('Menor data: ' + str(sorted(self.__lista)[0]))
+
     def mostraMaior(self):
         '''
         Este método retorna o maior elemento da lista
@@ -53,13 +56,17 @@ class ListaDatas(AnaliseDados):
     def __str__(self):
         listaDatasStr = ""
         for i in range(len(self.__lista)):
-            listaDatasStr.append(str(self.__lista[i])+'\n')
-        return listaDatasStr
+            listaDatasStr += str(self.__lista[i]) + '\n'
+        print(listaDatasStr)
 
     def listarEmOrdem(self):
         if not self.__lista:
-            print('A lista  está vazia!')
+            print('A lista está vazia!')
             return
-        print(sorted(self.__list))
-
-  
+        print(sorted(self.__lista))
+    def modificar_datas(self):
+        print("############ Iterador filter (Modificação de Datas) ##########")
+        for i in range(len(self.__lista)):
+            if self.__lista[i].ano < 2019:
+                self.__lista[i].dia = 1
+        print("Datas modificadas:", self.__str__())

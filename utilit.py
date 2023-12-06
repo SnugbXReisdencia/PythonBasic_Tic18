@@ -217,16 +217,6 @@ def pecorrer_listas(lst_nomes, lst_salarios):
     for nome, salario in zip(lst_nomes.lista, lst_salarios.lista):
         print(f"Nome: {nome}, Salário: {salario}")
 
-def reajustar_salarios(lst_salarios):
-    print("############ Iterador map (Reajuste de Salários 10%) ##########")
-    lst_salarios.reajustar10()
-    print("Salários reajustados:", lst_salarios.__str__())
-
-def modificar_datas(lst_datas):
-    print("############ Iterador filter (Modificação de Datas) ##########")
-    lst_datas.modificar_datas()
-    print("Datas modificadas:", lst_datas.__str__())
-
 def main():
     nomes = ListaNomes()
     idades = ListaIdades()
@@ -256,7 +246,7 @@ def main():
                     custo_folha = salarios.calcular_custo_folha()
                     print(f"Custo total da folha de pagamento: {custo_folha}")
                 elif opc == 3:
-                    modificar_datas(datas)
+                    datas.modificar_datas()
                 else:
                     print("Opcão inválida")
                 pause()

@@ -44,7 +44,12 @@ class ListaNomes(AnaliseDados):
             print('Insira um Nome a Lista Primeiro!')    
     def __str__(self):
         print(", ".join(self.__lista))
-    
+    def modificar_datas(self):
+        print("############ Iterador filter (Modificação de Datas) ##########")
+        for i in range(len(self.__lista)):
+            if self.__lista[i].ano < 2019:
+                self.__lista[i].dia = 1
+        print("Datas modificadas:", self.__str__())
     
 if __name__ == "__main__":
     sls = ListaNomes()
