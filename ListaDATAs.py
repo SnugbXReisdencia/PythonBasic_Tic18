@@ -51,10 +51,9 @@ class ListaDatas(AnaliseDados):
         print('Maior data: ' + str(sorted(self.__lista)[-1]))
     
     def __str__(self):
-        listaDatasStr = ""
-        for i in range(len(self.__lista)):
-            listaDatasStr.append(str(self.__lista[i])+'\n')
-        return listaDatasStr
+        for data in self.__lista:
+            print(data)
+        
 
     def listarEmOrdem(self):
         if not self.__lista:
