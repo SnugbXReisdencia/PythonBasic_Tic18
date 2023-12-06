@@ -33,13 +33,15 @@ class ListaIdades(AnaliseDados):
                 add_idade = int(input("Digite a idade: "))
                 if self.validar_idade(add_idade):
                     self.__lista.append(add_idade)
+                    
                 else:
                     raise ValueError("Idade Invalida.")
+                
+            print("Lista de idades:", self.__lista)
 
         except Exception as e:
             print("Error no metodo entradaDeDado: ", e)
-        finally:
-            print("Lista de idades:", self.__lista)
+          
 
     def mostraMediana(self):
         '''
@@ -47,41 +49,50 @@ class ListaIdades(AnaliseDados):
         elemento que está na metade da lista
         '''
         try:
-            listaOrdenada = self.listarEmOrdem()
-            mediana = listaOrdenada[int(len(listaOrdenada) / 2 - 1)] if len(
-                self.__lista) % 2 == 0 else listaOrdenada[int(len(listaOrdenada) / 2)]
+            if not self.__lista:
+                print("A lista está vazia.")
+            else:    
+                listaOrdenada = self.listarEmOrdem()
+                mediana = listaOrdenada[int(len(listaOrdenada) / 2 - 1)] if len(self.__lista) % 2 == 0 else listaOrdenada[int(len(listaOrdenada) / 2)]
+                print(f'Idade mediana: {mediana}, De lista ordenado: {listaOrdenada}')
+            
         except Exception as e:
             print("Error no metodo mostraMediana", e)
-        finally:
-            print(
-                f'Idade mediana: {mediana}, De lista ordenado: {listaOrdenada}')
+
 
     def mostraMenor(self):
         '''
         Este método retorna o menos elemento da lista
         '''
         try:
-            menor_numero = min(self.__lista, default=None)
+            if not self.__lista:
+                print("A lista está vazia.")
+            else:   
+                print("Menor número da lista:", min(self.__lista, default=None))
         except Exception as e:
             print("Error no metodo mostraMenor", e)
-        finally:
-            print("Menor número da lista:", menor_numero)
+
 
     def mostraMaior(self):
         '''
         Este método retorna o maior elemento da lista
         '''
         try:
-            maior_numero = max(self.__lista, default=None)
+            if not self.__lista:
+                print("A lista está vazia.")
+            else:
+                print("Maior número da lista:", max(self.__lista, default=None))
         except Exception as e:
             print("Error no metodo mostraMaior", e)
-        finally:
-            print("Maior número da lista:", maior_numero)
+
 
     def __str__(self):
         try:
-            for num in self.__lista:
-                print(f'-> {num}')
+            if not self.__lista:
+                print("A lista está vazia.")
+            else:
+                for num in self.__lista:
+                    print(f'-> {num}')
         except Exception as e:
             print("Error no metodo __str__", e)
 
@@ -99,10 +110,10 @@ class ListaIdades(AnaliseDados):
 def main():
     Idade = ListaIdades()
     
-    Idade.entradaDeDados()
     Idade.mostraMediana()
     Idade. mostraMenor()
     Idade. mostraMaior()
+    Idade.entradaDeDados()
     Idade.__str__()
 
 

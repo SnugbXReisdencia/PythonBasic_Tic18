@@ -41,6 +41,9 @@ class ListaDatas(AnaliseDados):
         Este método ordena a lista e mostra o
         elemento que está na metade da lista
         '''
+        if not self.__lista:
+            print('A lista  está vazia!')
+            return
         listaOrdenada = sorted(self.__lista)
         if len(self.__lista) % 2 == 0:
             mediana = listaOrdenada[int(len(listaOrdenada) / 2 - 1)]
@@ -51,21 +54,29 @@ class ListaDatas(AnaliseDados):
         '''
         Este método retorna o menos elemento da lista
         '''
+        if not self.__lista:
+            print('A lista  está vazia!')
+            return
         print('Menor data: ' + str(sorted(self.__lista)[0]))
     def mostraMaior(self):
         '''
         Este método retorna o maior elemento da lista
         '''
+        if not self.__lista:
+            print('A lista  está vazia!')
+            return
         print('Maior data: ' + str(sorted(self.__lista)[-1]))
     
     def __str__(self):
-        listaDatasStr = ""
-        for i in range(len(self.__lista)):
-            listaDatasStr.append(str(self.__lista[i])+'\n')
-        return listaDatasStr
+        if not self.__lista:
+            print('A lista  está vazia!')
+        for data in self.__lista:
+            print(data)
+        
 
     def listarEmOrdem(self):
         if not self.__lista:
             print('A lista  está vazia!')
             return
-        print(sorted(self.__list))
+        for data in sorted(self.__lista):
+            print(data)

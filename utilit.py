@@ -1,4 +1,5 @@
 import os
+from Data import Data
 
 from ListaNomes import ListaNomes
 from ListaDATAs import ListaDatas
@@ -198,10 +199,13 @@ def ListaDatasAnoAnterior2019(lst):
         pause()
         return
     lista_filtrada = filter(lambda data: data.ano < 2019, lst)
-    for data in lista_filtrada:
-        data.dia = 1
     print("Lista atualizada com o ano anterior a 2019 modificado para 1° dia do mes")
-    print(lista_filtrada)
+    #exibindo a lista filtrada com o ano anterior a 2019 modificado para 1° dia do mes
+    lista_filtrada = list(
+        map(lambda data: Data(1, data.mes, data.ano), lista_filtrada)
+        )
+    for data in lista_filtrada:
+        print(data.__str__())
     pause()
 
 def ListaNomesSalarios(listNomes, listSalarios):

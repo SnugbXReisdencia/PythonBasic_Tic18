@@ -13,27 +13,47 @@ class ListaNomes(AnaliseDados):
     def lista(self, lista):
         self.__lista = lista
            
+        self.__lista = []  
+    @property
+    def lista(self):
+        return self.__lista
+    @lista.setter
+    def lista(self, lista):
+        self.__lista = lista              
     def entradaDeDados(self):
-        n = int(input("Quantidade de nomes: "))
+        try:
+            n = int(input("Quantidade de nomes que deseja adicionar à lista?: "))         
+        except:
+            print("Valor Passado Invalido. Tente novamente.")
+            return
         for _ in range(n):
             nome = input("Digite um nome: ")
             self.__lista.append(nome)
 
     def mostraMediana(self):
-        sorted_lista = sorted(self.__lista)
-        meio = len(sorted_lista) // 2
-        if len(sorted_lista) % 2 == 0:  
-            print("Mediana:", sorted_lista[meio - 1])  
-        else:
+        try:
+            if not self.__lista:
+                raise ValueError("Lista vazia. Impossível calcular mediana.")
+            sorted_lista = sorted(self.__lista)
+            meio = len(sorted_lista) // 2
             print("Mediana:", sorted_lista[meio])
-
+        except ValueError as e:
+            print(str(e)) 
     def mostraMenor(self):
-        print("Menor elemento:", min(self.__lista))
-
+        try:
+            print("Menor elemento:", min(self.__lista))
+        except:
+            print('Insira um Nome a Lista Primeiro!')
     def mostraMaior(self):
-        print("Maior elemento:", max(self.__lista))
+        try:
+            print("Maior elemento:", max(self.__lista))
+        except:
+            print('Insira um Nome a Lista Primeiro!')
     def listarEmOrdem(self):
-        print("Lista em ordem alfabética:", sorted(self.__lista)) 
+        try:
+            print("Lista em ordem alfabética:", sorted(self.__lista)) 
+        except:
+            print('Insira um Nome a Lista Primeiro!')    
     def __str__(self):
         print(", ".join(self.__lista))
     
