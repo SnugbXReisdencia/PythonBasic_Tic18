@@ -4,6 +4,12 @@ class ListaSalarios(AnaliseDados):
 
     def __init__(self, lista = []):
         super().__init__(type(float))
+        self.__lista = lista 
+    @property
+    def lista(self):
+        return self.__lista
+    @lista.setter
+    def lista(self, lista):
         self.__lista = lista        
 
     def entradaDeDados(self):

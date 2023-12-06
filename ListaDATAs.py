@@ -4,7 +4,14 @@ class ListaDatas(AnaliseDados):
         
     def __init__(self):
         super().__init__(type(Data))
-        self.__lista = []        
+        self.__lista = []
+
+    @property
+    def lista(self):
+        return self.__lista
+    @lista.setter
+    def lista(self, lista):
+        self.__lista = lista          
     
     def entradaDeDados(self):
         '''

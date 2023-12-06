@@ -19,6 +19,7 @@ def menu():
     print("3 - Lista de salario")
     print("4 - Lista de data")
     print("5 - Pecorre a lista de nomes e salarios")
+    print("6 - Modificar dia das datas  inferiores ao ano de 2019")
     print("0 - Sair")
     try:
         opc = int(input("Escolha uma opção: "))
@@ -190,6 +191,29 @@ def gerenciaData(lst):
 
     return lst
 
+def percorre_nomes_e_salarios(nomes, salarios):
+    if len(nomes) == 0 or len(salarios) == 0:
+        print('As duas listas devem estar preenchidas!')
+    elif len(nomes) != len(salarios):
+        print('As duas listas devem ter o mesmo tamanho!')
+    else:
+        for n, s in zip(nomes, salarios):
+            print(f'Nome: {n}, Salário: {s}')
+    pause()
+
+def modificarDatasAnterioresA2019(datas):
+    if len(datas) == 0:
+        print('Lista de datas vazia!')
+        pause()
+        return
+    lista_modificada = filter(lambda data: data.ano < 2019, datas)
+    for data in lista_modificada:
+        data.dia = 1
+    print('Datas modificadas com sucesso!')
+    pause()
+
+
+
 def main():
     nomes = ListaNomes()
     idades = ListaIdades()
@@ -207,6 +231,10 @@ def main():
             salarios = gerenciaSalarios(salarios)
         elif opc == 4:
             datas = gerenciaData(datas)
+        elif opc == 5:
+            percorre_nomes_e_salarios(nomes.lista, salarios.lista)
+        elif opc == 6:
+            modificarDatasAnterioresA2019(datas.lista)
         else:
             print("Opcão inválida")
             pause()
