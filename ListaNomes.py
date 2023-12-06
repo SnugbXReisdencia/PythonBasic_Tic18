@@ -22,11 +22,13 @@ class ListaNomes(AnaliseDados):
 
     def mostraMediana(self):
         try:
+            if not self.__lista:
+                raise ValueError("Lista vazia. Impossível calcular mediana.")
             sorted_lista = sorted(self.__lista)
             meio = len(sorted_lista) // 2
             print("Mediana:", sorted_lista[meio])
-        except:
-            print('Insira um Nome a Lista Primeiro!')   
+        except ValueError as e:
+            print(str(e)) 
     def mostraMenor(self):
         try:
             print("Menor elemento:", min(self.__lista))
